@@ -167,7 +167,7 @@ svg.sr-only { width: 0; height: 0; clip: auto; overflow: visible; }
 .nav__logo em { font-style: normal; color: var(--magenta); display: inline-block; transition: transform .6s var(--ease); }
 .nav__logo:hover em { transform: rotate(180deg) scale(1.3); }
 .nav__cat {
-  width: 38px; height: 38px; padding: 3px; border-radius: 50%;
+  width: 38px; height: 38px; flex: none; padding: 3px; border-radius: 50%;
   background: var(--lilac); color: var(--lilac); border: 2px solid var(--red);
   transition: transform .5s var(--ease-spring);
 }
