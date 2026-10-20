@@ -126,3 +126,23 @@ export function initHorizontalGallery(): void {
     if (bar) bar.style.transform = `scaleX(${current})`;
   });
 }
+
+/** Botão flutuante de agendamento: aparece depois do topo e some perto do bloco de agendamento. */
+export function initFab(): void {
+  const fab = qs("[data-fab]");
+  const hero = qs("[data-hero]");
+  const book = qs("#agendar");
+  if (!fab || !hero) return;
+  let pastHero = false;
+  let nearBook = false;
+  const sync = (): void => void fab.classList.toggle("is-on", pastHero && !nearBook);
+  new IntersectionObserver(([e]) => {
+    pastHero = !e.isIntersecting;
+    sync();
+  }).observe(hero);
+  if (book)
+    new IntersectionObserver(([e]) => {
+      nearBook = e.isIntersecting;
+      sync();
+    }).observe(book);
+}

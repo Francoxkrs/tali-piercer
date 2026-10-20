@@ -2,8 +2,11 @@ import { splitText } from "./split.js";
 import { runLoader } from "./loader.js";
 import { initFairyDust } from "./fairy.js";
 import { initNav } from "./nav.js";
-import { initFaq, initServices } from "./services.js";
+import { initFaq } from "./faq.js";
+import { initHours } from "./hours.js";
+import { initExplorer } from "./catalog/explorer.js";
 import {
+  initFab,
   initHorizontalGallery,
   initMagnetic,
   initMarquee,
@@ -18,12 +21,14 @@ document.documentElement.classList.remove("no-js");
 splitText();
 initMarquee();
 initNav();
-initServices();
+initExplorer();
 initFaq();
+initHours();
 initScrub();
 initParallax();
 initMagnetic();
 initHorizontalGallery();
+initFab();
 initFairyDust();
 
 qsa("[data-year]").forEach((el) => (el.textContent = String(new Date().getFullYear())));
