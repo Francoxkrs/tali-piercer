@@ -806,27 +806,26 @@ section { position: relative; }
 /* ---------- Feedbacks ---------- */
 .reviews { padding: clamp(5rem, 12vw, 10rem) var(--pad); background: var(--ink); }
 .reviews__head { display: grid; gap: 1.2rem; margin-bottom: 3.5rem; }
-.reviews__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem; align-items: start; }
+.reviews__note { max-width: 38ch; color: rgba(231, 195, 251, .75); font-size: .95rem; }
+.reviews__list { columns: 3 20rem; column-gap: 1.8rem; }
 .review {
-  position: relative; display: grid; gap: 1.1rem; padding: clamp(1.4rem, 2.5vw, 2rem);
-  border-radius: 30px 30px 30px 6px; background: var(--lilac); color: var(--ink); border: 2px solid var(--ink);
+  position: relative; display: grid; gap: 1rem; margin-bottom: 2.2rem; padding: clamp(1.4rem, 2.5vw, 2rem);
+  break-inside: avoid; border-radius: 30px 30px 30px 6px; background: var(--lilac); color: var(--ink); border: 2px solid var(--ink);
   box-shadow: 8px 8px 0 var(--magenta); transition: transform .5s var(--ease-spring);
 }
-.review:nth-child(3n + 2) { background: var(--pink); margin-top: 3rem; rotate: 1.2deg; }
+.review:nth-child(3n + 2) { background: var(--pink); rotate: 1.2deg; }
 .review:nth-child(3n + 3) { background: var(--paper); rotate: -1deg; }
 .review:hover { transform: translateY(-6px) rotate(-1deg); }
-.review__stars { display: flex; gap: .25rem; color: var(--red); }
-.review__stars svg { width: 1.1rem; height: 1.1rem; }
-.review__text { margin: 0; font-family: var(--f-serif); font-style: italic; font-size: clamp(1.35rem, 1.05rem + 1vw, 1.85rem); line-height: 1.15; }
+.review__mark { height: 2.2rem; font-family: var(--f-serif); font-size: 5.5rem; line-height: .9; color: var(--red); }
+.review__text { margin: 0; font-family: var(--f-serif); font-style: italic; font-size: clamp(1.3rem, 1.05rem + .7vw, 1.65rem); line-height: 1.18; }
+.review__text mark {
+  color: inherit; background: linear-gradient(transparent 58%, rgba(255, 46, 139, .38) 58%, rgba(255, 46, 139, .38) 92%, transparent 92%);
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
 .review__meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem; font-weight: 700; font-size: .85rem; }
 .review .tag { color: var(--ink); border-color: rgba(12, 10, 15, .3); }
 .review .tag:hover { background: var(--ink); color: var(--lilac); border-color: var(--ink); }
-.review__flag {
-  position: absolute; top: -.85rem; right: 1.2rem; padding: .25rem .7rem; border-radius: 999px;
-  background: var(--ink); color: var(--lilac); border: 1.5px solid var(--lilac);
-  font-family: var(--f-display); font-size: .6rem; letter-spacing: .12em; text-transform: uppercase;
-}
-.reviews__more { display: inline-flex; align-items: center; min-height: 44px; margin-top: 2.5rem; color: var(--lilac); font-weight: 700; }
+.reviews__more { display: inline-flex; align-items: center; min-height: 44px; margin-top: 1rem; color: var(--lilac); font-weight: 700; }
 
 /* ---------- Toque confortável no celular ---------- */
 @media (max-width: 960px), (pointer: coarse) {
@@ -838,8 +837,6 @@ section { position: relative; }
 
 /* ---------- Telas pequenas (até 420px) ---------- */
 @media (max-width: 720px) {
-  .reviews__list { grid-template-columns: 1fr; gap: 2rem; }
-  .review:nth-child(3n + 2) { margin-top: 0; }
   .kit { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
   .kit__item b { font-size: .82rem; }
   .kit__item { padding: 1.4rem .9rem 1.2rem; gap: .9rem; }

@@ -149,10 +149,10 @@ export const galleryShots = (): string =>
 export const depoimentos = (): string =>
   DEPOIMENTOS.map((d) => {
     const furo = d.furo ? findPiercing(d.furo) : undefined;
-    return `<li class="review"${d.exemplo ? ' data-exemplo="true"' : ""}>
-  <span class="review__stars" aria-label="5 de 5">${'<svg aria-hidden="true"><use href="#heart"/></svg>'.repeat(5)}</span>
-  <blockquote class="review__text"><p>${esc(d.texto)}</p></blockquote>
+    const texto = d.destaque ? esc(d.texto).replace(esc(d.destaque), `<mark>${esc(d.destaque)}</mark>`) : esc(d.texto);
+    return `<li class="review">
+  <span class="review__mark" aria-hidden="true">“</span>
+  <blockquote class="review__text"><p>${texto}</p></blockquote>
   <p class="review__meta"><span>${esc(d.autor)}</span>${furo ? `<a class="tag" href="#furo-${furo.id}">${esc(furo.nome)}</a>` : ""}</p>
-  ${d.exemplo ? '<span class="review__flag">exemplo</span>' : ""}
 </li>`;
   }).join("\n");

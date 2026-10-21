@@ -19,6 +19,7 @@ Durante o desenvolvimento, `npm run watch` recompila o TypeScript e copia `publi
 public/          HTML, CSS, imagens (copiados para dist/)
 src/             TypeScript (compilado para dist/js/)
   data/piercings.ts  catálogo de furos e fotos de referência (edite aqui)
+  data/depoimentos.ts  feedbacks de clientes (edite aqui)
   catalog/       mapa interativo, ficha e catálogo (o HTML é gerado no build)
   main.ts        ponto de entrada
   loader.ts      tela "esterilizando…"
@@ -33,8 +34,9 @@ scripts/build.mjs
 
 ## Publicação
 
-Cada push na `main` publica o site no GitHub Pages pelo workflow em `.github/workflows/deploy.yml`.
-No repositório, vá em **Settings → Pages** e escolha **GitHub Actions** como fonte.
+O site fica na Netlify, em https://tali-piercer.netlify.app. A configuração está em `netlify.toml`
+(roda `npm run build` e publica a pasta `dist/`), então cada push na `main` gera um deploy novo.
+Se o endereço mudar, troque também `canonical`, `og:url` e `og:image` em `public/index.html`.
 
 ## Como editar o catálogo
 
@@ -42,6 +44,11 @@ Cada furo é um item em `src/data/piercings.ts`: nome, região, tempo médio de 
 joia inicial e os pontos onde a joia aparece no desenho (coordenadas num quadro de 200 × 260).
 Para ligar uma foto a um furo, adicione o `id` do furo em `furos` dentro de `FOTOS`.
 Cada furo tem link direto, por exemplo `/#furo-helix`, bom para colocar nos stories.
+
+## Como editar os feedbacks
+
+Cada feedback é um item em `src/data/depoimentos.ts`. `destaque` é o trecho que ganha marca-texto
+e `furo` liga o cartão a um furo do catálogo. Só coloque nome ou @ de quem escreveu com autorização.
 
 ## Pendências de conteúdo
 
