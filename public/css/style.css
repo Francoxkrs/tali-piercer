@@ -252,8 +252,9 @@ svg.sr-only { width: 0; height: 0; clip: auto; overflow: visible; }
 .is-ready .hero .char, .char.is-in { transform: none; }
 
 .hero__photo {
-  position: absolute; z-index: 2; left: 50%; top: 52%; margin: 0;
-  width: clamp(200px, 27vw, 430px); translate: -50% -42%;
+  /* medido no tamanho do título (em): o rosto fica sempre logo abaixo do "TALI" e a foto passa na frente do "PIERCER" */
+  position: absolute; z-index: 2; left: 50%; top: calc(50% + 1rem); margin: 0;
+  font-size: clamp(3.6rem, 14.6vw, 16rem); width: 1.65em; translate: -50% -.35em;
 }
 .hero__frame {
   position: relative; aspect-ratio: 4 / 5; overflow: hidden;
@@ -976,6 +977,19 @@ section { position: relative; }
 .wish__clear { justify-self: center; min-height: 44px; border: 0; background: none; cursor: pointer; font-weight: 700; font-size: .8rem; text-decoration: underline; color: #5b4d66; }
 body.has-wish .fab, body.menu-open .wish { display: none; }
 
+@media (min-width: 721px) and (max-width: 1180px) {
+  /* entre tablet e notebook pequeno o balão desce pro rodapé do hero, ao lado do selo de rolar */
+  .dm { max-width: 13rem; top: auto; bottom: 2rem; left: calc(var(--pad) + 120px); padding: .8rem .95rem .95rem; }
+  .dm__text { font-size: 1rem; }
+}
+@media (min-width: 721px) and (max-width: 900px) {
+  /* tablet em pé: não sobra espaço livre no hero; o balão aparece no celular e no desktop */
+  .dm { display: none; }
+}
+@media (min-width: 721px) and (max-height: 820px) {
+  /* em notebook baixo a frase encosta no "PIERCER": fica só nos CTAs */
+  .note--b { display: none; }
+}
 @media (max-width: 960px) {
   .about__photos { max-width: 440px; }
   .shop { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
