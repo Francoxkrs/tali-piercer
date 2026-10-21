@@ -2,6 +2,7 @@
 // e no navegador para atualizar o painel de detalhes.
 import { FOTOS, PIERCINGS, REGIOES, whatsLink } from "../data/piercings.js";
 import type { Base, Foto, Piercing } from "../data/piercings.js";
+import { DEPOIMENTOS } from "../data/depoimentos.js";
 
 const W = 200;
 const H = 260;
@@ -108,7 +109,7 @@ ${p.aka ? `<p class="detail__aka">${esc(p.aka)}</p>` : ""}
 </dl>
 ${p.nota ? `<p class="detail__note">${esc(p.nota)}</p>` : ""}
 ${refs}
-<a class="btn detail__cta" href="${esc(whatsLink(msg))}" target="_blank" rel="noopener" data-magnetic>quero esse <svg aria-hidden="true"><use href="#sparkle"/></svg></a>`;
+<a class="btn detail__cta" href="${esc(whatsLink(msg))}" target="_blank" rel="noopener noreferrer" data-magnetic>quero esse <svg aria-hidden="true"><use href="#sparkle"/></svg></a>`;
 }
 
 export function regionChips(): string {
@@ -142,4 +143,16 @@ export const galleryShots = (): string =>
       .join("");
     const variant = f.src.includes("zine") ? "shot--zine" : SHOT_VARIANTS[i % SHOT_VARIANTS.length];
     return `<figure class="shot ${variant}"><div class="shot__img"><img src="${f.src}" alt="${esc(f.alt)}" width="${f.w}" height="${f.h}" loading="lazy"/></div><figcaption><span>${esc(f.legenda)}</span>${tags ? `<span class="tags">${tags}</span>` : ""}</figcaption></figure>`;
+  }).join("\n");
+
+/** Cartões da seção de feedbacks. */
+export const depoimentos = (): string =>
+  DEPOIMENTOS.map((d) => {
+    const furo = d.furo ? findPiercing(d.furo) : undefined;
+    return `<li class="review"${d.exemplo ? ' data-exemplo="true"' : ""}>
+  <span class="review__stars" aria-label="5 de 5">${'<svg aria-hidden="true"><use href="#heart"/></svg>'.repeat(5)}</span>
+  <blockquote class="review__text"><p>${esc(d.texto)}</p></blockquote>
+  <p class="review__meta"><span>${esc(d.autor)}</span>${furo ? `<a class="tag" href="#furo-${furo.id}">${esc(furo.nome)}</a>` : ""}</p>
+  ${d.exemplo ? '<span class="review__flag">exemplo</span>' : ""}
+</li>`;
   }).join("\n");

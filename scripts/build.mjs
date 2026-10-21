@@ -18,6 +18,7 @@ async function inject() {
     datalist: r.datalist(),
     cards: r.cards(),
     gallery: r.galleryShots(),
+    depoimentos: r.depoimentos(),
     detail: r.detail(findPiercing("helix")),
     map: [r.mapView("orelha", "orelha", true), r.mapView("rosto", "rosto", false), r.mapView("corpo", "corpo", false)].join("\n"),
   };
