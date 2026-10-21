@@ -27,6 +27,7 @@ src/             TypeScript (compilado para dist/js/)
   split.ts       quebra títulos em letras e o manifesto em palavras
   fairy.ts       poeirinha de fada que segue o cursor
   nav.ts         menu, menu mobile e seção ativa
+  jump.ts        links internos: rolagem suave ou "cortina" com o nome da seção nos trechos longos
   motion.ts      revelações, parallax, manifesto, galeria horizontal, botões magnéticos
                  (com "reduzir movimento" ligado no sistema, tudo vira fade e só o parallax
                  e a galeria horizontal ficam parados)
@@ -55,6 +56,9 @@ e `furo` liga o cartão a um furo do catálogo. Só coloque nome ou @ de quem es
 
 ## Pendências de conteúdo
 
-- Ainda são recortes do Instagram: `labret-vertical`, `nostril-septum` e `ear-curation` (em `public/img/`).
+- Ainda são recortes do Instagram: `nostril-septum` e `ear-curation` (em `public/img/`).
   As fotos novas entram em `FOTOS`, em `src/data/piercings.ts` (WebP de até 900px, sem metadados).
 - Confirmar com a Tali a lista de furos e os tempos de cicatrização.
+- Confirmar com a Tali as duas joias na frente da orelha (`trabalho-curadoria` e `trabalho-helix-corrente`):
+  microdermal ou surface tragus? Por enquanto essas fotos não estão marcadas com nenhum dos dois.
+- Confirmar se a curadoria completa tem industrial (os spikes de cima podem ser dois furos de helix).

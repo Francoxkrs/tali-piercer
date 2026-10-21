@@ -6,6 +6,7 @@ import { initFaq } from "./faq.js";
 import { initHours } from "./hours.js";
 import { initExplorer } from "./catalog/explorer.js";
 import { initWish } from "./wish.js";
+import { initJump } from "./jump.js";
 import {
   initFab,
   initGalleryFocus,
@@ -25,6 +26,7 @@ initMarquee();
 initNav();
 initExplorer();
 initWish();
+initJump();
 initFaq();
 initHours();
 initScrub();
