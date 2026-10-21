@@ -22,11 +22,8 @@ export function initReveal(): void {
 export function initScrub(): void {
   const el = qs("[data-scrub]");
   if (!el) return;
+  // só muda a opacidade das palavras, então roda também com "reduzir movimento"
   const words = qsa(".w", el);
-  if (reducedMotion()) {
-    words.forEach((w) => w.classList.add("is-lit"));
-    return;
-  }
   let lastLit = -1;
   onFrame(() => {
     const r = el.getBoundingClientRect();
@@ -40,7 +37,8 @@ export function initScrub(): void {
   });
 }
 
-/** Parallax suave no scroll ([data-parallax]) e no mouse dentro do hero ([data-depth]). */
+/** Parallax suave no scroll ([data-parallax]) e no mouse dentro do hero ([data-depth]).
+ *  Fica desligado com "reduzir movimento": é o efeito que mais dá enjoo. */
 export function initParallax(): void {
   if (reducedMotion()) return;
   const items = qsa("[data-parallax]");
@@ -78,9 +76,9 @@ export function initParallax(): void {
   });
 }
 
-/** Botões que "puxam" o cursor. */
+/** Botões que "puxam" o cursor (deslocamento pequeno, segue a mão da pessoa). */
 export function initMagnetic(): void {
-  if (!finePointer() || reducedMotion()) return;
+  if (!finePointer()) return;
   qsa("[data-magnetic]").forEach((el) => {
     el.addEventListener("pointermove", (e) => {
       const r = el.getBoundingClientRect();
@@ -99,7 +97,8 @@ export function initMarquee(): void {
   });
 }
 
-/** Galeria: rolagem vertical vira horizontal enquanto a seção está presa na tela. */
+/** Galeria: rolagem vertical vira horizontal enquanto a seção está presa na tela.
+ *  Com "reduzir movimento" vira uma faixa com rolagem lateral normal (ver CSS). */
 export function initHorizontalGallery(): void {
   const section = qs("[data-hscroll]");
   const track = qs("[data-track]", section ?? document);
@@ -124,6 +123,34 @@ export function initHorizontalGallery(): void {
     current = lerp(current, p, 0.12);
     track.style.transform = `translate3d(${-current * distance}px, 0, 0)`;
     if (bar) bar.style.transform = `scaleX(${current})`;
+  });
+}
+
+/** A foto mais perto do meio da tela sai do duotone e mostra a cor de verdade. */
+export function initGalleryFocus(): void {
+  const gallery = qs("[data-hscroll]");
+  const shots = qsa("[data-shot]");
+  if (!gallery || !shots.length) return;
+  let visible = false;
+  new IntersectionObserver(([e]) => (visible = e.isIntersecting)).observe(gallery);
+  let last: Element | null = null;
+  onFrame(() => {
+    if (!visible) return;
+    const mid = innerWidth / 2;
+    let best: Element | null = null;
+    let bestDist = Infinity;
+    shots.forEach((s) => {
+      const r = s.getBoundingClientRect();
+      const d = Math.abs(r.left + r.width / 2 - mid);
+      if (d < bestDist) {
+        bestDist = d;
+        best = s;
+      }
+    });
+    if (best === last) return;
+    last?.classList.remove("is-focus");
+    (best as Element | null)?.classList.add("is-focus");
+    last = best;
   });
 }
 

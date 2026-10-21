@@ -192,9 +192,9 @@
     <nav aria-label="Menu">
       <a href="#furos">furos</a>
       <a href="#referencias">referências</a>
+      <a href="#feedbacks">feedbacks</a>
       <a href="#joias">joias</a>
       <a href="#cuidados">cuidados</a>
-      <a href="#feedbacks">feedbacks</a>
       <a href="#agendar">horários</a>
       <a href="#duvidas">dúvidas</a>
     </nav>
@@ -215,17 +215,21 @@
 
       <figure class="hero__photo" data-parallax="0.12">
         <div class="hero__frame">
-          <img src="img/tali-alley.webp" alt="Tali, de cabelo rosa e roupa de arrastão, sentada no corredor do estúdio" width="565" height="722" fetchpriority="high" />
+          <img src="img/tali-retrato.webp" alt="Tali Piercer sorrindo, com piercings no rosto e os braços tatuados" width="900" height="1125" fetchpriority="high" />
         </div>
       </figure>
       <span class="sticker sticker--fairy" data-parallax="-0.25">mãozinha<br/>de fada <span aria-hidden="true">🧚</span></span>
 
-      <p class="note note--a" data-parallax="0.06">body piercer desde <b>2021</b><br/>(e sigo estudando e me atualizando)</p>
+      <a class="dm" href="#feedbacks" data-parallax="0.06">
+        <span class="dm__text">“hoje eu simplesmente não me reconheço mais sem ele”</span>
+        <span class="dm__meta">feedback real, de quem fez medusa <span aria-hidden="true">↓</span></span>
+        <span class="dm__heart" aria-hidden="true"><svg><use href="#heart"/></svg></span>
+      </a>
       <div class="hero__aside">
         <p class="note note--b">“not a phase, mom”<br/>piercing é identidade, não tem idade, fase ou regra</p>
         <div class="hero__ctas">
           <a class="btn" href="#furos" data-magnetic>ver os furos <svg aria-hidden="true"><use href="#sparkle"/></svg></a>
-          <a class="btn btn--ink" href="https://wa.me/5567998209137?text=Oii%20Tali!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20piercing%20%E2%9C%A8" target="_blank" rel="noopener noreferrer" data-magnetic>agendar no whats</a>
+          <a class="btn btn--ink" href="https://wa.me/5567998209137?text=Oii%20Tali!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20piercing%20%E2%9C%A8" target="_blank" rel="noopener noreferrer" data-magnetic>agendar meu furo <svg aria-hidden="true"><use href="#heart"/></svg></a>
         </div>
       </div>
 
@@ -266,10 +270,16 @@
       </p>
 
       <div class="about__grid">
-        <figure class="polaroid polaroid--tilt-l">
-          <img src="img/tali-studio.webp" alt="Tali paramentada com touca, máscara e avental descartável no estúdio" width="567" height="707" loading="lazy" />
-          <figcaption>paramentada e pronta ✦</figcaption>
-        </figure>
+        <div class="about__photos">
+          <figure class="polaroid polaroid--tilt-l" data-reveal>
+            <img src="img/tali-atendimento.webp" alt="Tali de luvas e touca marcando o furo de uma cliente, que sorri tranquila" width="640" height="800" loading="lazy" />
+            <figcaption>luva, touca e calma ✦</figcaption>
+          </figure>
+          <figure class="polaroid polaroid--small" data-reveal>
+            <img src="img/tali-furando.webp" alt="Tali paramentada com touca, máscara e avental fazendo um piercing na orelha de uma cliente" width="640" height="800" loading="lazy" />
+            <figcaption>em ação ✦</figcaption>
+          </figure>
+        </div>
 
         <div class="about__text">
           <h2 class="h2">isso é tudo <span class="serif">(ou quase tudo)</span> que você precisa saber</h2>
@@ -287,6 +297,10 @@
               <p>tipos de furo diferentes, da orelha ao corpo. <a class="link" href="#furos">veja todos no mapa</a>.</p>
             </li>
           </ul>
+          <div class="cred" data-reveal>
+            <img src="img/piercing-delas.webp" alt="Cartaz do Piercing Delas com a Tali: diva confirmada no 2º Congresso Nacional de Body Piercing Seguro para Mulheres, da Stiletto Piercing Supplies" width="720" height="901" loading="lazy" />
+            <p><span class="cred__tag">diva confirmada</span><b>Piercing Delas</b> 2º Congresso Nacional de Body Piercing Seguro para Mulheres, da Stiletto. estudar nunca sai da agenda.</p>
+          </div>
           <p class="about__where">atendendo no <a href="https://www.instagram.com/dharma_tattoo_barber/" target="_blank" rel="noopener noreferrer">@dharma_tattoo_barber</a> <svg aria-hidden="true"><use href="#heart"/></svg></p>
         </div>
       </div>
@@ -297,7 +311,7 @@
       <header class="section-head">
         <p class="eyebrow"><svg aria-hidden="true"><use href="#sparkle"/></svg> o catálogo</p>
         <h2 class="h2 h2--xl">todos os furos <span class="serif">que eu faço</span></h2>
-        <p class="lede">toca num ponto do mapa ou procura na lista. cada furo mostra o tempo médio de cicatrização, a joia inicial e as referências. valores e horários a gente combina no whatsapp.</p>
+        <p class="lede">toca num ponto do mapa ou procura na lista. cada furo mostra o tempo médio de cicatrização, a joia inicial e fotos de trabalhos reais. curtiu algum? <b>põe na sua lista</b> <svg class="lede__heart" aria-hidden="true"><use href="#heart"/></svg> e me manda tudo de uma vez no whatsapp, que eu te passo valores e horários.</p>
       </header>
 
       <div class="explorer__stage">
@@ -329,6 +343,7 @@
         <ul class="catalog__grid" data-catalog>
           <!--@cards-->
         </ul>
+        <button class="btn btn--ghost catalog__more" type="button" data-more hidden>ver todos os <!--@total--> furos <svg aria-hidden="true"><use href="#sparkle"/></svg></button>
         <p class="catalog__empty" data-empty hidden>nenhum furo com esse nome por aqui. me chama no whats que a gente conversa <svg aria-hidden="true"><use href="#sparkle"/></svg></p>
       </div>
     </section>
@@ -350,6 +365,19 @@
         </div>
         <div class="gallery__progress" aria-hidden="true"><span data-progress></span></div>
       </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="reviews" id="feedbacks">
+      <div class="reviews__head">
+        <p class="eyebrow"><svg aria-hidden="true"><use href="#sparkle"/></svg> feedbacks</p>
+        <h2 class="h2 h2--xl">palavra de <span class="serif">quem já furou</span></h2>
+        <p class="reviews__note">respostas de clientes ao story da tali, do jeitinho que chegaram.</p>
+      </div>
+      <ul class="reviews__list">
+        <!--@depoimentos-->
+      </ul>
+      <a class="link reviews__more" href="https://www.instagram.com/talipiercer/" target="_blank" rel="noopener noreferrer">mais feedbacks no destaque do instagram ↗</a>
     </section>
 
     <!-- JOIAS & AGULHA -->
@@ -387,6 +415,23 @@
           <p><b>agulha americana</b> descartável, aberta na sua frente</p>
         </li>
       </ul>
+
+      <div class="shop">
+        <div class="shop__text" data-reveal>
+          <p class="eyebrow"><svg aria-hidden="true"><use href="#sparkle"/></svg> joias pra troca</p>
+          <h3 class="shop__title">furo cicatrizado pede <span class="serif">joia nova</span></h3>
+          <p>correntinhas, pingentes, topos fofos e muito mais. pergunta quais estão disponíveis que eu te mando as fotos e já marco a troca, com a joia certa pro seu furo.</p>
+          <a class="btn" href="https://wa.me/5567998209137?text=Oii%20Tali!%20Vim%20pelo%20site%20e%20quero%20ver%20as%20joias%20dispon%C3%ADveis%20%E2%9C%A8" target="_blank" rel="noopener noreferrer" data-magnetic>ver joias disponíveis <svg aria-hidden="true"><use href="#sparkle"/></svg></a>
+        </div>
+        <figure class="shop__item" data-reveal>
+          <img src="img/joia-corrente.webp" alt="Joia com corrente e pingente de zircônia segurada por uma pinça" width="800" height="800" loading="lazy" />
+          <figcaption>corrente com pingente</figcaption>
+        </figure>
+        <figure class="shop__item shop__item--b" data-reveal>
+          <img src="img/joia-gatinha.webp" alt="Topo em formato de gatinha com pingente de pedra, segurado por uma pinça" width="800" height="800" loading="lazy" />
+          <figcaption>gatinha com pingente</figcaption>
+        </figure>
+      </div>
 
       <div class="versus">
         <article class="vs vs--yes" data-reveal>
@@ -442,19 +487,6 @@
       </ul>
     </section>
 
-    <!-- DEPOIMENTOS -->
-    <section class="reviews" id="feedbacks">
-      <div class="reviews__head">
-        <p class="eyebrow"><svg aria-hidden="true"><use href="#sparkle"/></svg> feedbacks</p>
-        <h2 class="h2 h2--xl">palavra de <span class="serif">quem já furou</span></h2>
-        <p class="reviews__note">respostas de clientes ao story da tali, do jeitinho que chegaram.</p>
-      </div>
-      <ul class="reviews__list">
-        <!--@depoimentos-->
-      </ul>
-      <a class="link reviews__more" href="https://www.instagram.com/talipiercer/" target="_blank" rel="noopener noreferrer">mais feedbacks no destaque do instagram ↗</a>
-    </section>
-
     <!-- HORÁRIOS & AGENDAMENTO -->
     <section class="book" id="agendar">
       <div class="book__sky" aria-hidden="true"></div>
@@ -473,7 +505,7 @@
         </div>
 
         <ol class="book__steps">
-          <li><b>1</b> me chama no whatsapp contando o furo que você quer</li>
+          <li><b>1</b> me chama no whatsapp contando o furo que você quer (ou manda a sua lista <svg aria-hidden="true"><use href="#heart"/></svg>)</li>
           <li><b>2</b> a gente escolhe a joia, fecha o valor e marca dia e horário</li>
           <li><b>3</b> você chega, relaxa e sai de lá brilhando ✦</li>
         </ol>
@@ -483,6 +515,8 @@
         <span>chamar no whatsapp</span>
         <svg aria-hidden="true"><use href="#sparkle"/></svg>
       </a>
+      <p class="book__micro">sem compromisso: tira todas as suas dúvidas antes de marcar.</p>
+      <blockquote class="book__quote"><p>“me sinto tão a vontade nas suas mãos”</p><svg aria-hidden="true"><use href="#heart"/></svg></blockquote>
 
       <div class="book__place">
         <div>
@@ -506,20 +540,24 @@
       </div>
       <div class="faq__list" data-faq>
         <details>
-          <summary>posso colocar uma argola logo de cara?</summary>
-          <div><p>no geral, não. durante a cicatrização a argola se movimenta mais, o que pode atrasar o processo e até alterar a angulação do furo. a gente começa com a joia certa e troca depois.</p></div>
+          <summary>dói muito?</summary>
+          <div><p>é rapidinho! a agulha americana é super afiada e corta o tecido de forma limpa, por isso dói bem menos do que as pessoas imaginam. e eu vou te explicando cada passo, no seu tempo. como disse uma cliente: “a tranquilidade que vc passa na hora da perfuração”.</p></div>
+        </details>
+        <details>
+          <summary>não sei qual furo combina comigo. e agora?</summary>
+          <div><p>me manda uma foto da orelha (ou do rosto) no whatsapp que eu te ajudo a montar um projeto pensando na sua anatomia e no seu estilo. dá pra ir montando a sua lista aqui no <a class="link" href="#furos">mapa de furos</a> e mandar tudo de uma vez.</p></div>
+        </details>
+        <details>
+          <summary>quanto custa?</summary>
+          <div><p>o valor muda conforme o furo e a joia escolhida. me chama no whatsapp que eu te mando as opções certinhas.</p></div>
         </details>
         <details>
           <summary>quanto tempo demora para cicatrizar?</summary>
           <div><p>varia conforme a região: lóbulo leva de 6 a 8 semanas, nariz de 4 a 6 meses, boca de 1 a 3 meses e as cartilagens da orelha de 6 a 12 meses. o seu corpo também conta, por isso o acompanhamento comigo depois do furo é tão importante: no retorno de 30 dias eu vejo como está a cicatrização e faço a redução de haste, se precisar. o tempo de cada furo está no <a class="link" href="#furos">mapa de furos</a>.</p></div>
         </details>
         <details>
-          <summary>dói muito?</summary>
-          <div><p>é rapidinho! a agulha americana é super afiada e corta o tecido de forma limpa, por isso dói bem menos do que as pessoas imaginam. e eu vou te explicando cada passo.</p></div>
-        </details>
-        <details>
-          <summary>quanto custa?</summary>
-          <div><p>o valor muda conforme o furo e a joia escolhida. me chama no whatsapp que eu te mando as opções certinhas.</p></div>
+          <summary>posso colocar uma argola logo de cara?</summary>
+          <div><p>no geral, não. durante a cicatrização a argola se movimenta mais, o que pode atrasar o processo e até alterar a angulação do furo. a gente começa com a joia certa e troca depois.</p></div>
         </details>
         <details>
           <summary>menor de idade pode furar?</summary>
@@ -533,6 +571,7 @@
           <summary>meu piercing inflamou, e agora?</summary>
           <div><p>não tire a joia! tirar pode prender a infecção lá dentro. me manda foto no whatsapp pra eu avaliar e, se precisar, te encaminho pra um médico.</p></div>
         </details>
+        <a class="btn btn--ink faq__cta" href="https://wa.me/5567998209137?text=Oii%20Tali!%20Vim%20pelo%20site%20e%20fiquei%20com%20uma%20d%C3%BAvida%20%E2%9C%A8" target="_blank" rel="noopener noreferrer" data-magnetic>ficou alguma dúvida? me chama <svg aria-hidden="true"><use href="#sparkle"/></svg></a>
       </div>
     </section>
   </main>
@@ -549,6 +588,18 @@
       <p>feito com <svg aria-hidden="true"><use href="#heart"/></svg> e agulha americana</p>
     </div>
   </footer>
+
+  <div class="wish" data-wish hidden>
+    <div class="wish__panel" id="lista" data-wish-panel role="region" aria-label="Minha lista de furos" hidden>
+      <p class="wish__title">sua curadoria <svg aria-hidden="true"><use href="#sparkle"/></svg></p>
+      <ul class="wish__list" data-wish-list></ul>
+      <a class="btn wish__send" href="https://wa.me/5567998209137" target="_blank" rel="noopener noreferrer" data-wish-send>mandar no whats <svg aria-hidden="true"><use href="#sparkle"/></svg></a>
+      <button class="wish__clear" type="button" data-wish-clear>limpar lista</button>
+    </div>
+    <button class="wish__toggle" type="button" aria-expanded="false" aria-controls="lista" data-wish-toggle>
+      <svg aria-hidden="true"><use href="#heart"/></svg> minha lista <b data-wish-count>0</b>
+    </button>
+  </div>
 
   <a class="fab" href="https://wa.me/5567998209137?text=Oii%20Tali!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20piercing%20%E2%9C%A8" target="_blank" rel="noopener noreferrer" data-fab>
     <svg aria-hidden="true"><use href="#sparkle"/></svg> agendar no whats

@@ -2,6 +2,7 @@ import { PIERCINGS } from "../data/piercings.js";
 import type { Base } from "../data/piercings.js";
 import { baseOf, detail, findPiercing, jewel } from "./render.js";
 import { qs, qsa, reducedMotion } from "../utils.js";
+import { syncWishButtons } from "../wish.js";
 
 const DEFAULT = "helix";
 
@@ -18,6 +19,11 @@ export function initExplorer(): void {
   const search = qs<HTMLInputElement>("[data-search]");
   const empty = qs("[data-empty]");
   const count = qs("[data-count]");
+  const more = qs<HTMLButtonElement>("[data-more]");
+  // No celular o catálogo começa com poucos cartões, pra não virar uma rolagem sem fim
+  const small = matchMedia("(max-width: 720px)");
+  const PREVIEW = 8;
+  let expanded = false;
   let current = "";
   let region = "todos";
 
@@ -55,8 +61,9 @@ export function initExplorer(): void {
       const swap = (): void => {
         panel.innerHTML = detail(p);
         panel.classList.remove("is-out");
+        syncWishButtons();
       };
-      if (reducedMotion() || !panel.childElementCount) swap();
+      if (!panel.childElementCount) swap();
       else {
         panel.classList.add("is-out");
         window.setTimeout(swap, 180);
@@ -92,17 +99,26 @@ export function initExplorer(): void {
   // Filtro por região + busca por nome
   const apply = (): void => {
     const q = (search?.value ?? "").trim().toLowerCase();
+    const limit = !expanded && small.matches && region === "todos" && !q ? PREVIEW : Infinity;
     let shown = 0;
+    let matches = 0;
     cards.forEach((c) => {
       const okRegion = region === "todos" || c.dataset.regiao === region;
       const okSearch = !q || (c.dataset.busca ?? "").includes(q);
       const visible = okRegion && okSearch;
-      c.hidden = !visible;
-      if (visible) c.style.setProperty("--i", String(shown++));
+      if (visible) matches++;
+      c.hidden = !visible || shown >= limit;
+      if (!c.hidden) c.style.setProperty("--i", String(shown++));
     });
+    if (more) more.hidden = shown >= matches;
     if (empty) empty.hidden = shown > 0;
-    if (count) count.textContent = shown === cards.length ? `${shown} furos` : `${shown} de ${cards.length} furos`;
+    if (count) count.textContent = matches === cards.length ? `${matches} furos` : `${matches} de ${cards.length} furos`;
   };
+  more?.addEventListener("click", () => {
+    expanded = true;
+    apply();
+  });
+  small.addEventListener("change", apply);
 
   chips.forEach((chip) =>
     chip.addEventListener("click", () => {

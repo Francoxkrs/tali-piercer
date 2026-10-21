@@ -5,8 +5,10 @@ import { initNav } from "./nav.js";
 import { initFaq } from "./faq.js";
 import { initHours } from "./hours.js";
 import { initExplorer } from "./catalog/explorer.js";
+import { initWish } from "./wish.js";
 import {
   initFab,
+  initGalleryFocus,
   initHorizontalGallery,
   initMagnetic,
   initMarquee,
@@ -22,12 +24,14 @@ splitText();
 initMarquee();
 initNav();
 initExplorer();
+initWish();
 initFaq();
 initHours();
 initScrub();
 initParallax();
 initMagnetic();
 initHorizontalGallery();
+initGalleryFocus();
 initFab();
 initFairyDust();
 

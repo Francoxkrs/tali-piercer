@@ -1,4 +1,4 @@
-import { finePointer, onFrame, qs, reducedMotion } from "./utils.js";
+import { finePointer, onFrame, qs } from "./utils.js";
 
 interface Dust {
   x: number;
@@ -18,7 +18,7 @@ const MAX = 140;
 /** "Mãozinha de fada": o cursor solta brilhinhos por onde passa. */
 export function initFairyDust(): void {
   const canvas = qs<HTMLCanvasElement>("[data-fairy]");
-  if (!canvas || !finePointer() || reducedMotion()) {
+  if (!canvas || !finePointer()) {
     canvas?.remove();
     return;
   }

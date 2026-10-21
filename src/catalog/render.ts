@@ -109,7 +109,10 @@ ${p.aka ? `<p class="detail__aka">${esc(p.aka)}</p>` : ""}
 </dl>
 ${p.nota ? `<p class="detail__note">${esc(p.nota)}</p>` : ""}
 ${refs}
-<a class="btn detail__cta" href="${esc(whatsLink(msg))}" target="_blank" rel="noopener noreferrer" data-magnetic>quero esse <svg aria-hidden="true"><use href="#sparkle"/></svg></a>`;
+<div class="detail__actions">
+  <a class="btn detail__cta" href="${esc(whatsLink(msg))}" target="_blank" rel="noopener noreferrer" data-magnetic>quero esse <svg aria-hidden="true"><use href="#sparkle"/></svg></a>
+  <button class="btn btn--line detail__add" type="button" data-wish-add="${p.id}" aria-pressed="false"><svg aria-hidden="true"><use href="#heart"/></svg> <span data-wish-label>pôr na minha lista</span></button>
+</div>`;
 }
 
 export function regionChips(): string {
@@ -131,7 +134,7 @@ export const datalist = (): string =>
 
 export const total = (): number => PIERCINGS.length;
 
-const SHOT_VARIANTS = ["shot--tall", "shot--up", "", "shot--zine", "shot--up", "shot--tall"];
+const SHOT_VARIANTS = ["shot--tall", "shot--up", "", "shot--up", "shot--tall", ""];
 
 /** Fotos da galeria de referências, com atalhos para os furos que aparecem nelas. */
 export const galleryShots = (): string =>
@@ -141,8 +144,9 @@ export const galleryShots = (): string =>
       .filter((p): p is Piercing => Boolean(p))
       .map((p) => `<a class="tag" href="#furo-${p.id}">${esc(p.nome)}</a>`)
       .join("");
-    const variant = f.src.includes("zine") ? "shot--zine" : SHOT_VARIANTS[i % SHOT_VARIANTS.length];
-    return `<figure class="shot ${variant}"><div class="shot__img"><img src="${f.src}" alt="${esc(f.alt)}" width="${f.w}" height="${f.h}" loading="lazy"/></div><figcaption><span>${esc(f.legenda)}</span>${tags ? `<span class="tags">${tags}</span>` : ""}</figcaption></figure>`;
+    // Foto sem furo marcado é post da Tali: entra como "recorte de zine", sem duotone
+    const variant = f.furos.length ? SHOT_VARIANTS[i % SHOT_VARIANTS.length] : "shot--zine";
+    return `<figure class="shot ${variant}" data-shot><div class="shot__img"><img src="${f.src}" alt="${esc(f.alt)}" width="${f.w}" height="${f.h}" loading="lazy"/></div><figcaption><span>${esc(f.legenda)}</span>${tags ? `<span class="tags">${tags}</span>` : ""}</figcaption></figure>`;
   }).join("\n");
 
 /** Cartões da seção de feedbacks. */
@@ -153,6 +157,6 @@ export const depoimentos = (): string =>
     return `<li class="review">
   <span class="review__mark" aria-hidden="true">“</span>
   <blockquote class="review__text"><p>${texto}</p></blockquote>
-  <p class="review__meta"><span>${esc(d.autor)}</span>${furo ? `<a class="tag" href="#furo-${furo.id}">${esc(furo.nome)}</a>` : ""}</p>
+  ${d.autor || furo ? `<p class="review__meta">${d.autor ? `<span>${esc(d.autor)}</span>` : ""}${furo ? `<a class="tag" href="#furo-${furo.id}">${esc(furo.nome)}</a>` : ""}</p>` : ""}
 </li>`;
   }).join("\n");

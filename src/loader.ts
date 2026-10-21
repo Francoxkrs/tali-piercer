@@ -1,4 +1,4 @@
-import { qs, reducedMotion } from "./utils.js";
+import { qs } from "./utils.js";
 
 /** Contador "esterilizando…" que some quando fontes e imagem principal carregam. */
 export function runLoader(): Promise<void> {
@@ -11,7 +11,8 @@ export function runLoader(): Promise<void> {
     window.setTimeout(() => loader?.remove(), 1400);
   };
 
-  if (!loader || !count || reducedMotion()) {
+  // Com "reduzir movimento" o loader continua, só sai com fade em vez da cortina (ver CSS)
+  if (!loader || !count) {
     finish();
     return Promise.resolve();
   }

@@ -21,12 +21,15 @@ src/             TypeScript (compilado para dist/js/)
   data/piercings.ts  catálogo de furos e fotos de referência (edite aqui)
   data/depoimentos.ts  feedbacks de clientes (edite aqui)
   catalog/       mapa interativo, ficha e catálogo (o HTML é gerado no build)
+  wish.ts        "minha lista": junta os furos escolhidos e manda tudo no WhatsApp
   main.ts        ponto de entrada
   loader.ts      tela "esterilizando…"
   split.ts       quebra títulos em letras e o manifesto em palavras
   fairy.ts       poeirinha de fada que segue o cursor
   nav.ts         menu, menu mobile e seção ativa
   motion.ts      revelações, parallax, manifesto, galeria horizontal, botões magnéticos
+                 (com "reduzir movimento" ligado no sistema, tudo vira fade e só o parallax
+                 e a galeria horizontal ficam parados)
   faq.ts         dúvidas
   hours.ts       selo "atendendo agora" no fuso de Campo Grande
 scripts/build.mjs
@@ -52,5 +55,6 @@ e `furo` liga o cartão a um furo do catálogo. Só coloque nome ou @ de quem es
 
 ## Pendências de conteúdo
 
-- Trocar as fotos provisórias (recortes do Instagram) pelas originais quando existirem.
+- Ainda são recortes do Instagram: `labret-vertical`, `nostril-septum` e `ear-curation` (em `public/img/`).
+  As fotos novas entram em `FOTOS`, em `src/data/piercings.ts` (WebP de até 900px, sem metadados).
 - Confirmar com a Tali a lista de furos e os tempos de cicatrização.

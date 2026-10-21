@@ -94,12 +94,17 @@ export const PIERCINGS: readonly Piercing[] = [
 ];
 
 export const FOTOS: readonly Foto[] = [
+  { src: "img/trabalho-curadoria.webp", alt: "Orelha com curadoria completa: industrial com spikes, helix, flat de coração vermelho, daith com argola cravejada, dois microdermais e lóbulos com caveira, argolas e corrente", legenda: "curadoria completa", w: 900, h: 1125, furos: ["industrial", "daith", "flat", "helix", "microdermal", "lobulo", "lobulo-alto"] },
+  { src: "img/trabalho-labret-septo.webp", alt: "Labret vertical lateral com bolinhas de titânio no lábio inferior e septo com argola preta de spikes", legenda: "labret vertical + septo", w: 900, h: 1125, furos: ["labret-vertical", "septo"] },
+  { src: "img/trabalho-flat-helix.webp", alt: "Flat com joia de coração azul e helix com zircônia", legenda: "flat de coração + helix", w: 900, h: 1125, furos: ["flat", "helix"] },
+  { src: "img/trabalho-umbigo.webp", alt: "Piercing de umbigo com pingente de pedras", legenda: "umbigo com pingente", w: 900, h: 1125, furos: ["umbigo"] },
+  { src: "img/trabalho-helix-argolas.webp", alt: "Dois furos de helix com argolas douradas", legenda: "helix duplo com argolas", w: 900, h: 1126, furos: ["helix"] },
+  { src: "img/trabalho-microdermal.webp", alt: "Microdermal no colo, com topo de pedra", legenda: "microdermal no colo", w: 900, h: 1125, furos: ["microdermal"] },
+  { src: "img/trabalho-helix-corrente.webp", alt: "Helix com corrente ligando dois furos e dois microdermais na frente da orelha", legenda: "helix com corrente + microdermais", w: 900, h: 1125, furos: ["helix", "microdermal"] },
   { src: "img/labret-vertical.webp", alt: "Labret vertical com bolinhas de titânio e nostril com argola preta", legenda: "labret vertical + nostril", w: 645, h: 691, furos: ["labret-vertical", "nostril"] },
   { src: "img/nostril-septum.webp", alt: "Nostril com spike, septo com joia de folhas, angel bites e snake bites com spikes", legenda: "spikes por todo lado", w: 582, h: 802, furos: ["nostril", "septo", "angel-bites", "snake-bites"] },
   { src: "img/ear-curation.webp", alt: "Curadoria de orelha com industrial, joias com zircônias, luas e estrelas", legenda: "curadoria de orelha", w: 582, h: 705, furos: ["industrial", "conch", "lobulo", "lobulo-alto"] },
-  { src: "img/tali-portrait.webp", alt: "Retrato da Tali, com piercings no rosto e tatuagens nos braços", legenda: "a própria, de perto", w: 348, h: 465, furos: [] },
-  { src: "img/kuromi.webp", alt: "Pelúcia de gatinha com piercings decorativos no rosto, sob luz roxa", legenda: "até a pelúcia ganhou furo", w: 567, h: 710, furos: [] },
-  { src: "img/zine-oii.webp", alt: "Post de apresentação: Oii, eu sou a Tali Piercer", legenda: "oii, eu sou a tali", w: 685, h: 800, furos: [] },
+  { src: "img/oii-tali.webp", alt: "Post de apresentação: Oii, eu sou a Tali Piercer, body piercer desde 2021, mãozinha de fada", legenda: "oii, eu sou a tali", w: 700, h: 875, furos: [] },
 ];
 
 export const WHATSAPP = "5567998209137";
